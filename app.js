@@ -2,7 +2,6 @@ const express = require('express');
 const mongoose = require('mongoose');
 const userRouter = require('./routes/users');
 const cardRouter = require('./routes/cards');
-const { createUser } = require('./controllers/users');
 
 mongoose.connect('mongodb://localhost:27017/mestodb', {
   useNewUrlParser: true,
@@ -23,8 +22,8 @@ app.use((req, res, next) => {
 
 app.use('/', userRouter);
 app.use('/', cardRouter);
-app.post('/users', createUser);
 
 app.listen(PORT, () => {
+  // eslint-disable-next-line no-console
   console.log(`Running on port ${PORT}`);
 });
