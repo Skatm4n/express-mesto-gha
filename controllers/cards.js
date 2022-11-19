@@ -26,7 +26,7 @@ const createCard = (req, res, next) => {
 const deleteCard = (req, res, next) => {
   const { cardId } = req.params;
 
-  return Cards.findById(cardId)
+  Cards.findById(cardId)
     .orFail(() => {
       throw new NotFound('Карточка с указанным _id не найдена');
     })
